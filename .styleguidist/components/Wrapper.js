@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { ThemeProvider } from "react-jss";
-import theme from "../../src/theme/theme";
+import { ThemeProvider } from "styled-components";
+import Base from "../../src/components/Base/Base";
 
 class Wrapper extends React.Component {
   render() {
-    return <ThemeProvider theme={theme}>{this.props.children}</ThemeProvider>;
+    return <Base>{this.props.children}</Base>;
   }
 }
 
