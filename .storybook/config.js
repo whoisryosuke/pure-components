@@ -1,4 +1,4 @@
-import { configure } from '@storybook/react';
+import { configure } from "@storybook/react";
 import { setOptions } from "@storybook/addon-options";
 
 // Option defaults:
@@ -7,12 +7,12 @@ setOptions({
    * Name to display in the top left corner
    * @type {String}
    */
-  name: 'JSS Design System',
+  name: "JSS Design System",
   /**
    * URL for name in top left corner to link to
    * @type {String}
    */
-  url: 'https://github.com/whoisryosuke',
+  url: "https://github.com/whoisryosuke",
   /**
    * Show story component as full screen
    * @type {Boolean}
@@ -65,11 +65,15 @@ setOptions({
    * @type {String}
    */
   selectedAddonPanel: undefined // The order of addons in the "Addons Panel" is the same as you import them in 'addons.js'. The first panel will be opened by default as you run Storybook
-})
+});
 
-const req = require.context('../src/components/', true, /(\.story\.js$)|(\.story\.jsx$)/);
+const req = require.context(
+  "../src/components/",
+  true,
+  /(\.story\.js$)|(\.story\.jsx$)/
+);
 function loadStories() {
-  req.keys().forEach((filename) => req(filename));
+  req.keys().forEach(filename => req(filename));
 }
 
-configure(loadStories, module)
+configure(loadStories, module);
