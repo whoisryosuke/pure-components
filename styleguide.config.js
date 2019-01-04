@@ -10,5 +10,17 @@ module.exports = {
   },
 
   // Files to ignore from docs
-  ignore: ["**/*.story.js", "**/*.test.js"]
+  // Theming
+  theme: {
+    color: {
+      sidebarBackground: "#191818"
+    },
+    fontSize: {
+      h2: 48,
+      h3: 36,
+      h4: 24,
+      h5: 18,
+      h6: 16
+    }
+  }
 };

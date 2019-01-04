@@ -1,11 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { ThemeProvider } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 import Base from "../../src/components/Base/Base";
+
+const StyleguideTheming = createGlobalStyle`
+  h1 {
+    color:#FFF !important;
+  }
+`;
 
 class Wrapper extends React.Component {
   render() {
-    return <Base>{this.props.children}</Base>;
+    return (
+      <Base>
+        <StyleguideTheming />
+        {this.props.children}
+      </Base>
+    );
   }
 }
 
