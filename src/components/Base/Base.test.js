@@ -1,9 +1,9 @@
 import React from "react";
 import { shallow, mount, render } from "enzyme";
-import Button from "./Button";
+import Base from "./Base";
 
-describe("Button Component", () => {
+describe("Base Component", () => {
   it("should render without throwing an error", () => {
-    expect(shallow(<Button>Test</Button>).exists()).toBe(true);
+    expect(shallow(<Base>Test</Base>).exists()).toBe(true);
   });
 });
