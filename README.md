@@ -1,6 +1,35 @@
-# JSS Design System Boilerplate
+# Pure Components
 
-Boilerplate Design System using JSS and ReactJS
+Styled Component design system for React/Preact based on [Pure CSS](https://purecss.io), a set of small, responsive CSS modules that you can use in every web project.
+
+## CSS with a minimal footprint.
+
+Pure Components are ridiculously tiny. The entire set of modules clocks in at 3.8KB\* minified and gzipped. Crafted with mobile devices in mind, it was important to us to keep our file sizes small, and every line of JS was carefully considered. If you decide to only use a subset of these modules, you'll save even more bytes.
+
+- Minimal - Only the components you need. Extend easily with styles to customize.
+- Lightweight
+- Modular
+
+Want to prototype a quick app? Or just need a quick grid? We've got you covered with simple, responsive components `<Grid><Grid.Unit columns={[1/2,1/4]}>`.
+
+## Components
+
+- Base
+- Button
+- Form
+- Grid
+- Grid.Unit
+- Menu
+- Menu.Header
+- Menu.Item
+- Table
+
+Check out [the documentation here](#) with each component, it's props, and examples on how to use them.
+
+## Branches
+
+- main - Pure CSS optimized
+- theming - Example on how to setup components for theming
 
 ## Development
 
@@ -12,39 +41,19 @@ This project primarily uses StorybookJS for development.
 1. `npm install`
 1. `npm run storybook` or `npm run dev`
 
-### Creating components
-
-Make a new folder in the components folder, make sure the folder name is unspaced and Pascal Case (ExampleComponentName). Create a JS file with the same folder name (or appropriate variation).
-
-Requirements
-
-- Documented PropTypes and default props.
-- Storybook examples are labeled with a `.story.js` filename.
-
-### Project Structure
-
-The goal is to keep the package as lightweight and minimal as possible, so there's not much to it. If you look at the `package.json`, you'll see a few dev dependencies like Babel, React, and Storybook.
-
-In terms of actual dependencies, we only have React-JSS, since it's used in the actual components. React and react-dom are peer-deps (since the project's using this will be react-based).
-
-#### Folder Structure
-
-- /components/
-- /components/ComponentName/
-- /components/ComponentName/ComponentName.js
-- /components/ComponentName/index.js - contains exports of all components in folder
-- .babelrc - env and react Babel presets.
-
 ## Todo
 
 ### High Priority
 
-- More components
-
 ### Low Priority
 
-- Integrate Jest + Storybook for testing
+- Tests
+- Extra pages (Layouts, Customize/Theming/Extend)
+- Built-in JS/React-based accessible dropdown (maybe @reach?)
 
-### Thoughts
+## Credits
 
-- Install Lerna to manage sub-packages, allowing users to install specific components (maybe separate branch?)
+- [Pure CSS](https://purecss.io)
+- [React Styleguidist](https://react-styleguidist.js.org/)
+- [StorybookJS](https://storybook.js.org/)
+- [styled-system](https://github.com/jxnblk/styled-system)
