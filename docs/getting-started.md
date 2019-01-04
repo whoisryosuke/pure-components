@@ -7,7 +7,12 @@
 You can add Pure to your page via the free unpkg CDN. Just add the following <link> element into your page's <head>, before your project's stylesheets.
 
 ```html static
-<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+<link
+  rel="stylesheet" 
+  href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"
+  integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w"
+  crossorigin="anonymous"
+>
 ```
 
 > Alternatively, you can download Pure, or check out other CDNs that host Pure.
@@ -22,7 +27,7 @@ Pure's grid system is very simple. You create a row by using the `<Grid></Grid>`
 
 Here's a grid with three columns:
 
-```js
+```js static
 <Grid>
   <Grid.Unit width={[1 / 3]}>
     <p>Thirds</p>
@@ -62,22 +67,46 @@ Here's the default responsive breakpoints included in `grids-responsive.css`:
 
 Here's an example of what you'd be able to do. _Try resizing your screen to see how the grid responds._
 
-```js
+```js static
 <Grid>
   <Grid.Unit>.pure-u-1</Grid.Unit>
-  <Grid.Unit width={[1, 1/2, 1/4]}>
-      .pure-u-1<br>.pure-u-md-1-2<br>.pure-u-lg-1-4
+  <Grid.Unit width={[1, 1 / 2, 1 / 4]}>
+    .pure-u-1
+    <br />
+    .pure-u-md-1-2
+    <br />
+    .pure-u-lg-1-4
   </Grid.Unit>
-  <Grid.Unit width={[1, 1/2, 1/4]}>
-      .pure-u-1<br>.pure-u-md-1-2<br>.pure-u-lg-1-4
+  <Grid.Unit width={[1, 1 / 2, 1 / 4]}>
+    .pure-u-1
+    <br />
+    .pure-u-md-1-2
+    <br />
+    .pure-u-lg-1-4
   </Grid.Unit>
-  <Grid.Unit width={[1, 1/2, 1/4]}>
-      .pure-u-1<br>.pure-u-md-1-2<br>.pure-u-lg-1-4
+  <Grid.Unit width={[1, 1 / 2, 1 / 4]}>
+    .pure-u-1
+    <br />
+    .pure-u-md-1-2
+    <br />
+    .pure-u-lg-1-4
   </Grid.Unit>
-  <Grid.Unit width={[1, 1/2, 1/4]}>
-      .pure-u-1<br>.pure-u-md-1-2<br>.pure-u-lg-1-4
+  <Grid.Unit width={[1, 1 / 2, 1 / 4]}>
+    .pure-u-1
+    <br />
+    .pure-u-md-1-2
+    <br />
+    .pure-u-lg-1-4
   </Grid.Unit>
-  <Grid.Unit width={[1, 3/4]}>.pure-u-1<br>.pure-u-md-3-4</Grid.Unit>
-  <Grid.Unit width={[1, 1/4]}>.pure-u-1<br>.pure-u-md-1-4</Grid.Unit>
+  <Grid.Unit width={[1, 3 / 4]}>
+    .pure-u-1
+    <br />
+    .pure-u-md-3-4
+  </Grid.Unit>
+  <Grid.Unit width={[1, 1 / 4]}>
+    .pure-u-1
+    <br />
+    .pure-u-md-1-4
+  </Grid.Unit>
 </Grid>
 ```
