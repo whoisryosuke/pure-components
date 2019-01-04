@@ -1,6 +1,8 @@
-export Base from "./components/Base/Base";
-export Button from "./components/Button/Button";
-export Form from "./components/Form/Form";
-export Grid from "./components/Grid/Grid";
-export Menu from "./components/Menu/Menu";
-export Table from "./components/Table/Table";
+import Base from "./components/Base/Base";
+import Button from "./components/Button/Button";
+import Form from "./components/Form/Form";
+import Grid from "./components/Grid/Grid";
+import Menu from "./components/Menu/Menu";
+import Table from "./components/Table/Table";
+
+export { Base, Button, Form, Grid, Menu, Table };
