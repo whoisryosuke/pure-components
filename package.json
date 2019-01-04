@@ -1,7 +1,7 @@
 {
-  "name": "design-system-jss",
+  "name": "pure-components",
   "version": "1.0.0",
-  "description": "Boilerplate Design System using JSS and ReactJS",
+  "description": "Styled Component design system based on Pure CSS for React/Preact",
   "main": "index.js",
   "scripts": {
     "build": "babel src -d lib",
@@ -16,7 +16,9 @@
     "design-system",
     "design-systems",
     "component-system",
-    "jss",
+    "react-components",
+    "components",
+    "pure-css",
     "css-in-js"
   ],
   "author": "Ryosuke",
@@ -45,7 +47,7 @@
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "react-styleguidist": "^7.3.11",
+    "react-styleguidist": "^8.0.6",
     "styled-components": "^4.1.3",
     "webpack": "^4.28.3"
   },
@@ -54,7 +56,9 @@
     "prop-types": "^15.6.2",
     "styled-components": "^4.1.3"
   },
-  "dependencies": {},
+  "dependencies": {
+    "styled-system": "^3.2.0"
+  },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>tests/setup/setupEnzyme.js",
     "testPathIgnorePatterns": [
