@@ -1,3 +1,8 @@
+# v1.0.1 - Jan 4, 2019
+
+- Added base export with `index.js`
+- Moved Markdown docs to `src`, Styleguidist now exports to root level docs folder (to allow GHPages)
+
 # v1.0.0 - Jan 4, 2019
 
 - Cloned project from design-system-jss. Replaced JSS with Styled Components.
