@@ -26,9 +26,9 @@ Let's start with a simple example. Here's a grid with three width:
 
 ```js
 <Grid>
-  <Grid.Unit width={[1, 3]}>Thirds</Grid.Unit>
-  <Grid.Unit width={[1, 3]}>Thirds</Grid.Unit>
-  <Grid.Unit width={[1, 3]}>Thirds</Grid.Unit>
+  <Grid.Unit width={[1 / 3]}>Thirds</Grid.Unit>
+  <Grid.Unit width={[1 / 3]}>Thirds</Grid.Unit>
+  <Grid.Unit width={[1 / 3]}>Thirds</Grid.Unit>
 </Grid>
 ```
 
@@ -40,11 +40,11 @@ Pure CSS ships with both a 5ths and 24ths based grid, but this library allows fo
 
 ```js
 <Grid>
-  <Grid.Unit width={[2, 24]}>1, 5</Grid.Unit>
-  <Grid.Unit width={[22, 24]}>
+  <Grid.Unit width={[2 / 24]}>1 / 5</Grid.Unit>
+  <Grid.Unit width={[22 / 24]}>
     <span style={{ display: "block", border: "1px solid #CCC" }}>
       <Grid>
-        <Grid.Unit width={[1, 5]}>
+        <Grid.Unit width={[1 / 5]}>
           <a
             style={{
               display: "block",
@@ -58,11 +58,11 @@ Pure CSS ships with both a 5ths and 24ths based grid, but this library allows fo
       </Grid>
     </span>
   </Grid.Unit>
-  <Grid.Unit width={[2, 24]}>4, 5</Grid.Unit>
-  <Grid.Unit width={[22, 24]}>
+  <Grid.Unit width={[2 / 24]}>4 / 5</Grid.Unit>
+  <Grid.Unit width={[22 / 24]}>
     <span style={{ display: "block", border: "1px solid #CCC" }}>
       <Grid>
-        <Grid.Unit width={[4, 5]}>
+        <Grid.Unit width={[4 / 5]}>
           <a
             style={{
               display: "block",
@@ -76,11 +76,11 @@ Pure CSS ships with both a 5ths and 24ths based grid, but this library allows fo
       </Grid>
     </span>
   </Grid.Unit>
-  <Grid.Unit width={[2, 24]}>1, 24</Grid.Unit>
-  <Grid.Unit width={[22, 24]}>
+  <Grid.Unit width={[2 / 24]}>1 / 24</Grid.Unit>
+  <Grid.Unit width={[22 / 24]}>
     <span style={{ display: "block", border: "1px solid #CCC" }}>
       <Grid>
-        <Grid.Unit width={[1, 24]}>
+        <Grid.Unit width={[1 / 24]}>
           <a
             style={{
               display: "block",
@@ -94,11 +94,11 @@ Pure CSS ships with both a 5ths and 24ths based grid, but this library allows fo
       </Grid>
     </span>
   </Grid.Unit>
-  <Grid.Unit width={[2, 24]}>5, 24</Grid.Unit>
-  <Grid.Unit width={[22, 24]}>
+  <Grid.Unit width={[2 / 24]}>5 / 24</Grid.Unit>
+  <Grid.Unit width={[22 / 24]}>
     <span style={{ display: "block", border: "1px solid #CCC" }}>
       <Grid>
-        <Grid.Unit width={[5, 24]}>
+        <Grid.Unit width={[5 / 24]}>
           <a
             style={{
               display: "block",
@@ -112,8 +112,8 @@ Pure CSS ships with both a 5ths and 24ths based grid, but this library allows fo
       </Grid>
     </span>
   </Grid.Unit>
-  <Grid.Unit width={[2, 24]}>1, 36</Grid.Unit>
-  <Grid.Unit width={[22, 24]}>
+  <Grid.Unit width={[2 / 24]}>1, 36</Grid.Unit>
+  <Grid.Unit width={[22 / 24]}>
     <span style={{ display: "block", border: "1px solid #CCC" }}>
       <Grid>
         <Grid.Unit width={[1, 36]}>
@@ -130,11 +130,11 @@ Pure CSS ships with both a 5ths and 24ths based grid, but this library allows fo
       </Grid>
     </span>
   </Grid.Unit>
-  <Grid.Unit width={[2, 24]}>10, 36</Grid.Unit>
-  <Grid.Unit width={[22, 24]}>
+  <Grid.Unit width={[2 / 24]}>10 / 36</Grid.Unit>
+  <Grid.Unit width={[22 / 24]}>
     <span style={{ display: "block", border: "1px solid #CCC" }}>
       <Grid>
-        <Grid.Unit width={[10, 36]}>
+        <Grid.Unit width={[10 / 36]}>
           <a
             style={{
               display: "block",
