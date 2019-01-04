@@ -14,6 +14,10 @@
     "test": "jest",
     "test:watch": "jest --watch"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/whoisryosuke/pure-components.git"
+  },
   "keywords": [
     "design-system",
     "design-systems",
