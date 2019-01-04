@@ -87,6 +87,13 @@ storiesOf("Button", module)
       </Button>
     </div>
   ))
+  .add("Button Group", () => (
+    <Button.Group>
+      <Button onClick={action("clicked")}>Hello Button</Button>
+      <Button onClick={action("clicked")}>Hello Button</Button>
+      <Button onClick={action("clicked")}>Hello Button</Button>
+    </Button.Group>
+  ))
   .add("with some emoji", () => (
     <Button onClick={action("clicked")}>
       <span role="img" aria-label="so cool">
