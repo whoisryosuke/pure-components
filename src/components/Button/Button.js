@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+import Group from "./Button.Group";
+
 const activeButton = isActive => {
   let style;
   if (isActive) {
@@ -20,57 +22,23 @@ const activeButton = isActive => {
   return style;
 };
 
-/**
- * Button
- *
- */
-const Button = ({ className, children, style, onClick }) => (
-  <button type="button" className={className} style={style} onClick={onClick}>
+const BaseButton = ({ className, children, style, onClick }) => (
+  <button
+    type="button"
+    className={`${className} button`}
+    style={style}
+    onClick={onClick}
+  >
     {children}
   </button>
 );
 
-Button.propTypes = {
-  /**
-   * Makes button appear inset to distinguish it being "activated"
-   */
-  active: PropTypes.boolean,
-  
-  /**
-   * Makes button appear disabled
-   */
-  disabled: PropTypes.boolean,
+BaseButton.Group = Group;
 
-  /**
-   * Hides button completely using `display:none`
-   */
-  hidden: PropTypes.boolean,
-
-  /**
-   * Styles button with primary color (defaults to blue)
-   */
-  primary: PropTypes.boolean,
-
-  /**
-   * Additional object with inline styles to override default CSS
-   */
-  style: PropTypes.object,
-
-  /**
-   * Function called when user clicks button
-   */
-  onClick: PropTypes.func,
-  
-  /**
-   * Child components (array or single element)
-   */
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]).isRequired
-};
-
-const StyledButton = styled(Button)`
+/**
+ * Pure CSS and React button.
+ */
+const Button = styled(BaseButton)`
   font-family: inherit;
   font-size: 100%;
   padding: 0.5em 1em;
@@ -119,4 +87,45 @@ const StyledButton = styled(Button)`
       : ``}
 `;
 
-export default StyledButton;
+Button.propTypes = {
+  /**
+   * Makes button appear inset to distinguish it being "activated"
+   */
+  active: PropTypes.boolean,
+
+  /**
+   * Makes button appear disabled
+   */
+  disabled: PropTypes.boolean,
+
+  /**
+   * Hides button completely using `display:none`
+   */
+  hidden: PropTypes.boolean,
+
+  /**
+   * Styles button with primary color (defaults to blue)
+   */
+  primary: PropTypes.boolean,
+
+  /**
+   * Additional object with inline styles to override default CSS
+   */
+  style: PropTypes.object,
+
+  /**
+   * Function called when user clicks button
+   */
+  onClick: PropTypes.func,
+
+  /**
+   * Child components (array or single element)
+   */
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired
+};
+
+/** @component */
+export default Button;

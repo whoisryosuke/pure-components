@@ -1,16 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 
-/**
- * Dropdown used in <Menu> component
- *
- * @param {*} { className, children }
- */
-function Dropdown({ className, children }) {
+function BaseDropdown({ className, children }) {
   return <nav className={`dropdown ${className}`}>{children}</nav>;
 }
 
-const StyledDropdown = styled(Dropdown)`
+/**
+ * Dropdown used in `<Menu>` component
+ *
+ * @param {*} { className, children }
+ */
+const Dropdown = styled(BaseDropdown)`
   display: none;
   position: absolute;
   left: 100%;
@@ -20,4 +20,5 @@ const StyledDropdown = styled(Dropdown)`
   z-index: 3;
 `;
 
-export default StyledDropdown;
+/** @component */
+export default Dropdown;

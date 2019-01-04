@@ -14,7 +14,7 @@ import findByType from "../../utils/findByType";
  *
  * @param {object} {className: string, children: node || array(node)}
  */
-class Grid extends PureComponent {
+class BaseGrid extends PureComponent {
   renderUnits() {
     const { children } = this.props;
     const units = findByType(children, Unit);
@@ -41,19 +41,9 @@ class Grid extends PureComponent {
   }
 }
 
-Grid.propTypes = {
-  /**
-   * Child components (array or single element)
-   */
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]).isRequired
-};
+BaseGrid.Unit = Unit;
 
-Grid.Unit = Unit;
-
-const StyledGrid = styled(Grid)`
+const Grid = styled(BaseGrid)`
   letter-spacing: -0.31em; /* Webkit: collapse white-space between units */
   *letter-spacing: normal; /* reset IE < 8 */
   *word-spacing: -0.43em; /* IE < 8: collapse white-space between units */
@@ -103,4 +93,15 @@ this the same font stack that Normalize.css sets for the 'body'.
   }
 `;
 
-export default StyledGrid;
+Grid.propTypes = {
+  /**
+   * Child components (array or single element)
+   */
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired
+};
+
+/** @component */
+export default Grid;

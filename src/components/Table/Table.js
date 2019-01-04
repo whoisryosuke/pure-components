@@ -6,21 +6,11 @@ import styled from "styled-components";
  * Table
  *
  */
-const Table = ({ className, children }) => (
+const BaseTable = ({ className, children }) => (
   <table className={className}>{children}</table>
 );
 
-Table.propTypes = {
-  /**
-   * Child components (array or single element)
-   */
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]).isRequired
-};
-
-const StyledTable = styled(Table)`
+const Table = styled(BaseTable)`
   /* Remove spacing between table cells (from Normalize.css) */
   border-collapse: collapse;
   border-spacing: 0;
@@ -105,4 +95,15 @@ striping:
       : ``};
 `;
 
-export default StyledTable;
+Table.propTypes = {
+  /**
+   * Child components (array or single element)
+   */
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired
+};
+
+/** @component */
+export default Table;

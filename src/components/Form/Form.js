@@ -2,51 +2,18 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-/**
- * Pure CSS and React Form. Just wrap your regular DOM <input> tags and go!
- *
- * @param {*} { className, children }
- */
-const Form = ({ className, children }) => (
+const BaseForm = ({ className, children }) => (
   <form type="Form" className={className}>
     {children}
   </form>
 );
 
-Form.propTypes = {
-  /**
-   * Aligns form elements so that labels are right aligned (on the left)
-   * and form inputs are left aligned (on the right).
-   *
-   * e.g.
-   * ```md
-   *    Label Here: []
-   *  Longer Label: []
-   * ```
-   */
-  aligned: PropTypes.boolean,
-
-  /**
-   * Stacks form inputs into 1 column (since <Form> defaults to inline elements)
-   */
-  stacked: PropTypes.boolean,
-
-  /**
-   * Automatically generated class name passed to component
-   * from Styled Components
-   */
-  className: PropTypes.string.isRequired,
-
-  /**
-   * Child components (array or single element)
-   */
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]).isRequired
-};
-
-const StyledForm = styled(Form)`
+/**
+ * Pure CSS and React Form. Just wrap your regular DOM <input> tags and go!
+ *
+ * @param {*} { className, children }
+ */
+const Form = styled(BaseForm)`
   /*
 Box-model set to false because we're setting a height on select elements, which
 also have border and padding. This is done because some browsers don't render
@@ -279,7 +246,21 @@ since IE8 won't execute CSS that contains a CSS3 selector.
   }
   & .pure-controls {
     margin: 1.5em 0 0 11em;
-  }`
+  }
+  @media only screen and (max-width: 480px) {
+  
+    & .pure-control-group label {
+      margin-bottom: 0.3em;
+      text-align: left;
+      display: block;
+      width: 100%;
+    }
+
+    & .pure-controls {
+      margin: 1.5em 0 0 0;
+    }
+  }
+  `
       : ``};
 
   /* Rounded Inputs */
@@ -328,25 +309,6 @@ since IE8 won't execute CSS that contains a CSS3 selector.
     margin: 0.35em 0;
   }
 
-  & .pure-input-1 {
-    width: 100%;
-  }
-  & .pure-input-3-4 {
-    width: 75%;
-  }
-  & .pure-input-2-3 {
-    width: 66%;
-  }
-  & .pure-input-1-2 {
-    width: 50%;
-  }
-  & .pure-input-1-3 {
-    width: 33%;
-  }
-  & .pure-input-1-4 {
-    width: 25%;
-  }
-
   /* Inline help for forms */
   /* NOTE: pure-help-inline is deprecated. Use .pure-form-message-inline instead. */
   & .pure-help-inline,
@@ -364,6 +326,94 @@ since IE8 won't execute CSS that contains a CSS3 selector.
     color: #666;
     font-size: 0.875em;
   }
+
+  @media only screen and (max-width: 480px) {
+    & button[type="submit"] {
+      margin: 0.7em 0 0;
+    }
+
+    & input:not([type]),
+    & input[type="text"],
+    & input[type="password"],
+    & input[type="email"],
+    & input[type="url"],
+    & input[type="date"],
+    & input[type="month"],
+    & input[type="time"],
+    & input[type="datetime"],
+    & input[type="datetime-local"],
+    & input[type="week"],
+    & input[type="number"],
+    & input[type="search"],
+    & input[type="tel"],
+    & input[type="color"],
+    & label {
+      margin-bottom: 0.3em;
+      display: block;
+    }
+
+    .pure-group input:not([type]),
+    .pure-group input[type="text"],
+    .pure-group input[type="password"],
+    .pure-group input[type="email"],
+    .pure-group input[type="url"],
+    .pure-group input[type="date"],
+    .pure-group input[type="month"],
+    .pure-group input[type="time"],
+    .pure-group input[type="datetime"],
+    .pure-group input[type="datetime-local"],
+    .pure-group input[type="week"],
+    .pure-group input[type="number"],
+    .pure-group input[type="search"],
+    .pure-group input[type="tel"],
+    .pure-group input[type="color"] {
+      margin-bottom: 0;
+    }
+
+    /* NOTE: pure-help-inline is deprecated. Use &-message-inline instead. */
+    & .pure-help-inline,
+    & .pure-form-message-inline,
+    & .pure-form-message {
+      display: block;
+      font-size: 0.75em;
+      /* Increased bottom padding to make it group with its related input element. */
+      padding: 0.2em 0 0.8em;
+    }
+  }
 `;
 
-export default StyledForm;
+Form.propTypes = {
+  /**
+   * Aligns form elements so that labels are right aligned (on the left)
+   * and form inputs are left aligned (on the right).
+   *
+   * e.g.
+   * ```md
+   *    Label Here: []
+   *  Longer Label: []
+   * ```
+   */
+  aligned: PropTypes.boolean,
+
+  /**
+   * Stacks form inputs into 1 column (since <Form> defaults to inline elements)
+   */
+  stacked: PropTypes.boolean,
+
+  /**
+   * Automatically generated class name passed to component
+   * from Styled Components
+   */
+  className: PropTypes.string.isRequired,
+
+  /**
+   * Child components (array or single element)
+   */
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired
+};
+
+/** @component */
+export default Form;

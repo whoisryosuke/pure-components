@@ -2,28 +2,16 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+function Wrapper({ children }) {
+  return <React.Fragment>{children}</React.Fragment>;
+}
 /**
  * Optional wrapper for the entire app to provide CSS normalization
  * and extra rules that Pure adds on top of Normalize.css
  *
  * @param {*} { children }
  */
-
-function Base({ children }) {
-  return <React.Fragment>{children}</React.Fragment>;
-}
-
-Base.propTypes = {
-  /**
-   * Child components (array or single element)
-   */
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]).isRequired
-};
-
-const StyledBase = styled(Base)`
+const Base = styled(Wrapper)`
   /**
    * Normalize.css
    */
@@ -194,4 +182,15 @@ const StyledBase = styled(Base)`
   }
 `;
 
-export default StyledBase;
+Base.propTypes = {
+  /**
+   * Child components (array or single element)
+   */
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired
+};
+
+/** @component */
+export default Base;

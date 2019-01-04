@@ -207,11 +207,7 @@ Item.propTypes = {
   selected: PropTypes.boolean
 };
 
-/**
- * Menu
- * Simple CSS and React for menus. See <List.Heading> and <List.Item>.
- */
-class Menu extends PureComponent {
+class BaseMenu extends PureComponent {
   renderHeading() {
     const { children } = this.props;
     // First we try to find the Heading sub-component among the children of Article
@@ -250,23 +246,16 @@ class Menu extends PureComponent {
   }
 }
 
-Menu.propTypes = {
-  horizontal: PropTypes.bool,
-  selected: PropTypes.bool,
-  /**
-   * Child components (array or single element)
-   */
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]).isRequired
-};
+BaseMenu.Heading = Heading;
+BaseMenu.List = List;
+BaseMenu.Item = Item;
 
-Menu.Heading = Heading;
-Menu.List = List;
-Menu.Item = Item;
-
-const StyledMenu = styled(Menu)`
+/**
+ * Simple CSS and React for menus. See <List.Heading> and <List.Item>.
+ *
+ * @visibleName Menu
+ */
+const Menu = styled(BaseMenu)`
   box-sizing: border-box;
   position: relative;
 
@@ -281,4 +270,25 @@ const StyledMenu = styled(Menu)`
   ${props => scrollableHorizontal(props.selected, props.horizontal)};
 `;
 
-export default StyledMenu;
+Menu.propTypes = {
+  /**
+   * Makes menu items display horizontal (inline)
+   */
+  horizontal: PropTypes.bool,
+
+  /**
+   * Makes menu items appear selected
+   */
+  selected: PropTypes.bool,
+  
+  /**
+   * Child components (array or single element)
+   */
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired
+};
+
+/** @component */
+export default Menu;
