@@ -11,6 +11,10 @@ module.exports = {
 
   sections: [
     {
+      name: "Introduction",
+      content: "docs/index.md"
+    },
+    {
       name: "Getting Started",
       content: "docs/getting-started.md"
     },
@@ -34,9 +38,9 @@ module.exports = {
     //   ]
     // },
     {
-      name: "UI Components",
+      name: "Components",
       content: "docs/ui.md",
-      components: "src/components/*.js",
+      components: "src/components/*/*.js",
       exampleMode: "expand", // 'hide' | 'collapse' | 'expand'
       usageMode: "expand" // 'hide' | 'collapse' | 'expand'
     },
@@ -47,6 +51,11 @@ module.exports = {
     {
       name: "Releases",
       content: "CHANGELOG.md"
+    },
+    {
+      name: "Pure CSS",
+      href: "http://purecss.io",
+      external: true
     }
   ],
 
