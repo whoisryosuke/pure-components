@@ -2,71 +2,12 @@ import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+import Unit from "./Grid.Unit";
 import findByType from "../../utils/findByType";
 
 /**
- * Calculates width of a grid element.
+ * Pure CSS and React Grid.
  *
- * Accepts an array of two numbers, the column size
- * and total number of columns (respectively).
- *
- * Uses the total columns to determine total width,
- * then multiplies by the column size to calculate
- * current column width.
- *
- * For example: a two column grid, with 50% wide columns,
- * would be an array of `[1,2]`. 2 total columns, with a
- * column taking up 1 of the 2 (so 50%). Same as `[3,6]`.
- *
- * @param {array} columns [Column size, Number of columns]
- */
-const generateGrid = columns => {
-  if (columns) {
-    return `width: ${(100 / columns[1]) * columns[0]}%;`;
-  }
-};
-
-/**
- * Grid Unit
- * Creates a "unit" inside of the grid.
- * Comparable to a column in Bootstrap or cell in a spreadsheet.
- *
- * @param {object} {className, children}
- */
-const GridUnit = ({ className, children }) => (
-  <div className={className}>{children}</div>
-);
-
-GridUnit.propTypes = {
-  /**
-   * Array of two numbers, the column size
-   * and total number of columns (respectively).
-   *
-   * See <Grid.Unit> component for more info.
-   */
-  columns: PropTypes.array.isRequired,
-
-  /**
-   * Child components (array or single element)
-   */
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]).isRequired
-};
-
-const Unit = styled(GridUnit)`
-  ${props => generateGrid(props.columns)} display: inline-block;
-  *display: inline; /* IE < 8: fake inline-block */
-  zoom: 1;
-  letter-spacing: normal;
-  word-spacing: normal;
-  vertical-align: top;
-  text-rendering: auto;
-`;
-
-/**
- * Grid
  * Creates a grid using any wrapped <Grid.Unit> components.
  * This is purely a Flexbox wrapper for the "units", which
  * define their own width.
@@ -74,18 +15,6 @@ const Unit = styled(GridUnit)`
  * @param {object} {className: string, children: node || array(node)}
  */
 class Grid extends PureComponent {
-  renderHeading() {
-    const { children } = this.props;
-    // First we try to find the Heading sub-component among the children of Article
-    const title = findByType(children, Heading);
-    // If we don’t find any we return null
-    if (!title || title.length == 0) {
-      return null;
-    }
-    // Else we return the children of the Heading sub-component as wanted
-    return <Heading className="heading">{title[0].props.children}</Heading>;
-  }
-
   renderUnits() {
     const { children } = this.props;
     const units = findByType(children, Unit);
