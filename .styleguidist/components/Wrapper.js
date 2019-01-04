@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { createGlobalStyle } from "styled-components";
 import Base from "../../src/components/Base/Base";
+import Grid from "../../src/components/Grid/Grid";
+import Button from "../../src/components/Button/Button";
 
 const StyleguideTheming = createGlobalStyle`
   h1 {
