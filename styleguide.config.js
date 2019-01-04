@@ -9,14 +9,17 @@ module.exports = {
     Wrapper: path.join(__dirname, ".styleguidist/components/Wrapper")
   },
 
+  // Build to docs folder for Github Pages
+  styleguideDir: "docs",
+
   sections: [
     {
       name: "Introduction",
-      content: "docs/index.md"
+      content: "src/docs/index.md"
     },
     {
       name: "Getting Started",
-      content: "docs/getting-started.md"
+      content: "src/docs/getting-started.md"
     },
     // {
     //   name: 'Documentation',
@@ -39,14 +42,14 @@ module.exports = {
     // },
     {
       name: "Components",
-      content: "docs/ui.md",
+      content: "src/docs/ui.md",
       components: "src/components/*/*.js",
       exampleMode: "expand", // 'hide' | 'collapse' | 'expand'
       usageMode: "expand" // 'hide' | 'collapse' | 'expand'
     },
     {
       name: "Customize",
-      content: "docs/customize.md"
+      content: "src/docs/customize.md"
     },
     {
       name: "Releases",
