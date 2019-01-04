@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { space, width, fontSize, color } from "styled-system";
 
 import Group from "./Button.Group";
 
@@ -24,7 +25,6 @@ const activeButton = isActive => {
 
 const BaseButton = ({ className, children, style, onClick }) => (
   <button
-    type="button"
     className={`${className} button`}
     style={style}
     onClick={onClick}
@@ -49,6 +49,11 @@ const Button = styled(BaseButton)`
   background-color: #e6e6e6;
   text-decoration: none;
   border-radius: 2px;
+  
+  ${space}
+  ${width}
+  ${fontSize}
+  ${color}
 
   :hover {
     background-image: linear-gradient(
@@ -85,9 +90,73 @@ const Button = styled(BaseButton)`
       ? `background-color: rgb(0, 120, 231);
     color: #fff;`
       : ``}
+
+  ${props =>
+    props.rounded
+      ? `border-radius:1em;`
+      : ``}
 `;
 
 Button.propTypes = {
+  /**
+   * Responsive margin values (string or array).
+   * Similar props: `mt: margin-top`, `mx: margin-left and margin-right`
+   */
+  m: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.number),
+    PropTypes.number
+  ]),
+  /**
+   * Responsive padding values (string or array)
+   * Similar props: `pt: padding-top`, `px: padding-left and padding-right`
+   */
+  p: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.number),
+    PropTypes.number
+  ]),
+  /**
+   * Responsive width values (number or array)
+   * Numbers from 0-1 are converted to percentage widths.
+   * Numbers greater than 1 are converted to pixel values.
+   * String values are passed as raw CSS values.
+   * And arrays are converted to responsive width styles.
+   */
+  width: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.number),
+    PropTypes.number
+  ]),
+  /**
+   * Responsive width values (number or array)
+   * Numbers from 0-8 (or theme.fontSizes.length) are converted to values on the font size scale.
+   * Numbers greater than theme.fontSizes.length are converted to raw pixel values.
+   * String values are passed as raw CSS values.
+   * And array values are converted into responsive values.
+   */
+  fontSize: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.number),
+    PropTypes.number
+  ]),
+  /**
+   * Set text alignment inside component
+   */
+  textAlign: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.string),
+    PropTypes.string
+  ]),
+  /**
+   * Set font color of component
+   */
+  color: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.number),
+    PropTypes.string
+  ]),
+  /**
+   * Set background color of component
+   */
+  bg: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.number),
+    PropTypes.string
+  ]),
   /**
    * Makes button appear inset to distinguish it being "activated"
    */
