@@ -1,3 +1,7 @@
+# v1.0.2 - Jan 4, 2019
+
+- `src` folder now part of NPM bundle
+
 # v1.0.1 - Jan 4, 2019
 
 - Added base export with `index.js`

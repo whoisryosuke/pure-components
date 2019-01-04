@@ -1,6 +1,6 @@
 {
   "name": "pure-styled-components",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Styled Component design system based on Pure CSS for React/Preact",
   "main": "index.js",
   "scripts": {
