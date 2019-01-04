@@ -4,7 +4,7 @@ Styled Component design system for React/Preact based on [Pure CSS](https://pure
 
 ## CSS with a minimal footprint.
 
-Pure Components are ridiculously tiny. The entire set of modules clocks in at 3.8KB\* minified and gzipped. Crafted with mobile devices in mind, it was important to us to keep our file sizes small, and every line of JS was carefully considered. If you decide to only use a subset of these modules, you'll save even more bytes.
+Pure Components are ridiculously tiny. The entire set of modules clocks in at 90KB\* minified and gzipped. Crafted with mobile devices in mind, it was important to us to keep our file sizes small, and every line of JS was carefully considered. If you decide to only use a subset of these modules, you'll save even more bytes.
 
 - Minimal - Only the components you need. Extend easily with styles to customize.
 - Lightweight
