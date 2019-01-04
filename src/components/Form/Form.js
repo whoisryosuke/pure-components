@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 /**
- * Form
+ * Pure CSS and React Form. Just wrap your regular DOM <input> tags and go!
  *
  * @param {*} { className, children }
  */
@@ -19,10 +19,10 @@ Form.propTypes = {
    * and form inputs are left aligned (on the right).
    *
    * e.g.
-   * `
+   * ```md
    *    Label Here: []
    *  Longer Label: []
-   * `
+   * ```
    */
   aligned: PropTypes.boolean,
 
