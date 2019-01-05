@@ -4,15 +4,12 @@
 
 ### Add Pure to Your Page
 
-You can add Pure to your page via the free unpkg CDN. Just add the following <link> element into your page's <head>, before your project's stylesheets.
+You can add Pure to your page via [the free unpkg CDN](https://unpkg.com/pure-styled-components@latest/). Just add the following <link> element into your page's <head>, before your project's stylesheets.
 
 ```html static
-<link
-  rel="stylesheet" 
-  href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"
-  integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w"
-  crossorigin="anonymous"
->
+<script
+  src="https://unpkg.com/pure-styled-components@latest/dist/components/Grid/Grid.js"
+></script>
 ```
 
 > Alternatively, you can download Pure, or check out other CDNs that host Pure.
