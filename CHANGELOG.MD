@@ -1,3 +1,8 @@
+# v1.0.3 - Jan 4, 2019
+
+- Changed main script to `src/index.js`
+- Updated Getting Started with Unpkg CDN
+
 # v1.0.2 - Jan 4, 2019
 
 - `src` folder now part of NPM bundle

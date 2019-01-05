@@ -1,8 +1,8 @@
 {
   "name": "pure-styled-components",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Styled Component design system based on Pure CSS for React/Preact",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "build": "rm -R dist && babel src -d dist --ignore '**.story.js','**.test.js'",
     "build-commonjs": "BABEL_ENV=commonjs babel src --out-dir commonjs --ignore '*.story.js','*.test.js' --source-maps inline",
