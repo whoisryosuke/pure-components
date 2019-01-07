@@ -1,3 +1,5 @@
+![Pure.js Logo](./images/logo-pure-js.jpg)
+
 # Pure Components
 
 Styled Component design system for React/Preact based on [Pure CSS](https://purecss.io), a set of small, responsive CSS modules that you can use in every web project.
@@ -47,9 +49,9 @@ This project primarily uses StorybookJS for development.
 
 ### Low Priority
 
+- Multi-layered dropdown display with keyboard input
 - Tests
 - Extra pages (Layouts, Customize/Theming/Extend)
-- Built-in JS/React-based accessible dropdown (maybe @reach?)
 
 ## Credits
 
