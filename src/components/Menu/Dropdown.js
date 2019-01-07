@@ -1,16 +1,31 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const showDropdown = ({ active }) => {
-  if(active) {
-    return `display:block;`
+  if (active) {
+    return `display:block;`;
   }
-  return ``
-}
+  return ``;
+};
 
 function BaseDropdown({ className, children }) {
   return <nav className={`dropdown ${className}`}>{children}</nav>;
 }
+
+BaseDropdown.propTypes = {
+  /**
+   * Class provided by Styled Components
+   */
+  className: PropTypes.string.isRequired,
+  /**
+   * Child components (array or single element)
+   */
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired
+};
 
 /**
  * Dropdown used in `<Menu>` component
@@ -26,7 +41,7 @@ const Dropdown = styled(BaseDropdown)`
   padding: 0;
   z-index: 3;
 
-  ${props => showDropdown}
+  ${props => showDropdown(props)};
 `;
 
 /** @component */
