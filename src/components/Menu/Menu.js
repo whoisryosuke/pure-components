@@ -65,17 +65,6 @@ const selectedMenu = isSelected => {
   }
 };
 
-const hoverableMenu = isHoverable => {
-  if (isHoverable) {
-    return `
-      :hover > .dropdown {
-          display: block;
-          position: absolute;
-      }
-    `;
-  }
-};
-
 const scrollableMenu = isScrollable => {
   if (isScrollable) {
     return `
@@ -115,7 +104,13 @@ const List = styled.ul`
   padding: 0;
 `;
 
-const Item = styled.li`
+const BaseItem = ({ className, children }, ...rest) => (
+  <li className={className} {...rest}>
+    {children}
+  </li>
+);
+
+const Item = styled(BaseItem)`
   position: relative;
   padding: 0;
   margin: 0;
@@ -177,7 +172,11 @@ const Item = styled.li`
     }`
       : ``}
 
-    ${props => hoverableMenu(props.hoverable)}
+      /* Displays dropdown on hover */
+      &:hover > .dropdown {
+          display: block;
+          position: absolute;
+      }
 
     /* Horizontal Menus - show the dropdown arrow */
     ${props => dropdownArrow(props.horizontal, props.dropdown)}
@@ -196,11 +195,6 @@ Item.propTypes = {
    * Adds necessary CSS for a nested Dropdown component
    */
   dropdown: PropTypes.boolean,
-  /**
-   * Allows users to hover over menu item and reveal Dropdown
-   * (by default requires users to tab to menu item to reveal)
-   */
-  hoverable: PropTypes.boolean,
   /**
    * Makes links appear selected
    */
@@ -280,7 +274,7 @@ Menu.propTypes = {
    * Makes menu items appear selected
    */
   selected: PropTypes.bool,
-  
+
   /**
    * Child components (array or single element)
    */
