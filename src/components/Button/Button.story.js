@@ -6,20 +6,20 @@ import Button from "./Button";
 
 storiesOf("Button", module)
   .add("with text", () => (
-    <Button onClick={action("clicked")}>Hello Button</Button>
+    <Button onClick={action("button-clicked")}>Hello Button</Button>
   ))
   .add("Disabled", () => (
-    <Button disabled onClick={action("clicked")}>
+    <Button disabled onClick={action("button-clicked")}>
       Hello Button
     </Button>
   ))
   .add("Active", () => (
-    <Button active onClick={action("clicked")}>
+    <Button active onClick={action("button-clicked")}>
       Hello Button
     </Button>
   ))
   .add("Primary", () => (
-    <Button primary onClick={action("clicked")}>
+    <Button primary onClick={action("button-clicked")}>
       Hello Button
     </Button>
   ))
@@ -32,7 +32,7 @@ storiesOf("Button", module)
           borderRadius: "4px",
           textShadow: "0 1px 1px rgba(0, 0, 0, 0.2);"
         }}
-        onClick={action("clicked")}
+        onClick={action("button-clicked")}
       >
         Success Button
       </Button>
@@ -43,7 +43,7 @@ storiesOf("Button", module)
           borderRadius: "4px",
           textShadow: "0 1px 1px rgba(0, 0, 0, 0.2);"
         }}
-        onClick={action("clicked")}
+        onClick={action("button-clicked")}
       >
         Error Button
       </Button>
@@ -54,7 +54,7 @@ storiesOf("Button", module)
           borderRadius: "4px",
           textShadow: "0 1px 1px rgba(0, 0, 0, 0.2);"
         }}
-        onClick={action("clicked")}
+        onClick={action("button-clicked")}
       >
         Warning Button
       </Button>
@@ -65,7 +65,7 @@ storiesOf("Button", module)
           borderRadius: "4px",
           textShadow: "0 1px 1px rgba(0, 0, 0, 0.2);"
         }}
-        onClick={action("clicked")}
+        onClick={action("button-clicked")}
       >
         Secondary Button
       </Button>
@@ -73,29 +73,29 @@ storiesOf("Button", module)
   ))
   .add("Sizes", () => (
     <div>
-      <Button style={{ fontSize: "70%" }} onClick={action("clicked")}>
+      <Button style={{ fontSize: "70%" }} onClick={action("button-clicked")}>
         Extra Small Button
       </Button>
-      <Button style={{ fontSize: "85%" }} onClick={action("clicked")}>
+      <Button style={{ fontSize: "85%" }} onClick={action("button-clicked")}>
         Small Button
       </Button>
-      <Button style={{ fontSize: "110%" }} onClick={action("clicked")}>
+      <Button style={{ fontSize: "110%" }} onClick={action("button-clicked")}>
         Large Button
       </Button>
-      <Button style={{ fontSize: "125%" }} onClick={action("clicked")}>
+      <Button style={{ fontSize: "125%" }} onClick={action("button-clicked")}>
         Extra Large Button
       </Button>
     </div>
   ))
   .add("Button Group", () => (
     <Button.Group>
-      <Button onClick={action("clicked")}>Hello Button</Button>
-      <Button onClick={action("clicked")}>Hello Button</Button>
-      <Button onClick={action("clicked")}>Hello Button</Button>
+      <Button onClick={action("button-clicked")}>Hello Button</Button>
+      <Button onClick={action("button-clicked")}>Hello Button</Button>
+      <Button onClick={action("button-clicked")}>Hello Button</Button>
     </Button.Group>
   ))
   .add("with some emoji", () => (
-    <Button onClick={action("clicked")}>
+    <Button onClick={action("button-clicked")}>
       <span role="img" aria-label="so cool">
         😀 😎 👍 💯
       </span>

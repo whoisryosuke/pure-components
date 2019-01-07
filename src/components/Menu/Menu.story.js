@@ -1,6 +1,5 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import { action } from "@storybook/addon-actions";
 
 import Menu from "./Menu";
 import Dropdown from "./Dropdown";
@@ -75,7 +74,7 @@ storiesOf("Menu", module)
             Selected
           </a>
         </Menu.Item>
-        <Menu.Item hoverable>
+        <Menu.Item hoverable selectable>
           <a href="#" className="link">
             Dropdown
           </a>

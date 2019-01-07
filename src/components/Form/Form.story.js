@@ -9,18 +9,41 @@ import Button from "../Button/Button";
 storiesOf("Form", module)
   .add("Default form", () => (
     <Form>
-        <fieldset>
-            <legend>A compact inline form</legend>
+      <fieldset>
+        <legend>A compact inline form</legend>
 
-            <Grid.Unit as="input" width={[23/24]} type="email" placeholder="Email" />
-            <Grid.Unit as="input" width={[23/24]} type="password" placeholder="Password" />
+        <Grid.Unit
+          as="input"
+          width={[23 / 24]}
+          type="email"
+          placeholder="Email"
+        />
+        <Grid.Unit
+          as="input"
+          width={[23 / 24]}
+          type="password"
+          placeholder="Password"
+        />
 
-            <label for="remember">
-                <Grid.Unit as="input" width={[23/24]} id="remember" type="checkbox" /> Remember me
-            </label>
+        <label htmlFor="remember">
+          <Grid.Unit
+            as="input"
+            width={[23 / 24]}
+            id="remember"
+            type="checkbox"
+          />
+          {" "}
+          Remember me
+        </label>
 
-            <Button type="submit" class="pure-button pure-button-primary" onClick={action("clicked")}>Sign in</Button>
-        </fieldset>
+        <Button
+          type="submit"
+          class="pure-button pure-button-primary"
+          onClick={action("form-clicked")}
+        >
+          Sign in
+        </Button>
+      </fieldset>
     </Form>
   ))
   .add("Stacked", () => (
@@ -265,7 +288,7 @@ I've read the terms and conditions
     <Form>
       <label htmlFor="option-one" className="pure-checkbox">
         <input id="option-one" type="checkbox" value="" />
- Here's option one.
+        Here's option one.
       </label>
 
       <label htmlFor="option-two" className="pure-radio">
