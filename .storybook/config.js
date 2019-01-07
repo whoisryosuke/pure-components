@@ -7,7 +7,7 @@ setOptions({
    * Name to display in the top left corner
    * @type {String}
    */
-  name: "JSS Design System",
+  name: "Pure Styled Components",
   /**
    * URL for name in top left corner to link to
    * @type {String}
