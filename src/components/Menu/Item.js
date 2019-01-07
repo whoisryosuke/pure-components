@@ -207,4 +207,5 @@ Item.propTypes = {
   selected: PropTypes.boolean
 };
 
+/** @component */
 export default Item;
