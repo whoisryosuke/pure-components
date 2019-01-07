@@ -1,6 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
+const showDropdown = ({ active }) => {
+  if(active) {
+    return `display:block;`
+  }
+  return ``
+}
+
 function BaseDropdown({ className, children }) {
   return <nav className={`dropdown ${className}`}>{children}</nav>;
 }
@@ -18,6 +25,8 @@ const Dropdown = styled(BaseDropdown)`
   margin: 0;
   padding: 0;
   z-index: 3;
+
+  ${props => showDropdown}
 `;
 
 /** @component */

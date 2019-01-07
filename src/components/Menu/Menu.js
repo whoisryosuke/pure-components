@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import findByType from "../../utils/findByType";
+import addPropsToComponent from "../../utils/addPropsToComponent";
+import Dropdown from "./Dropdown";
 
 const scrollableHorizontal = (isScrollable, isHorizontal) => {
   if (isScrollable && isHorizontal) {
@@ -23,6 +25,7 @@ const scrollableHorizontal = (isScrollable, isHorizontal) => {
       }
     `;
   }
+  return ``;
 };
 const horizontalMenu = isHorizontal => {
   if (isHorizontal) {
@@ -53,6 +56,7 @@ const horizontalMenu = isHorizontal => {
       }
     `;
   }
+  return ``;
 };
 
 const selectedMenu = isSelected => {
@@ -63,6 +67,7 @@ const selectedMenu = isSelected => {
       }
     `;
   }
+  return ``;
 };
 
 const scrollableMenu = isScrollable => {
@@ -76,6 +81,7 @@ const scrollableMenu = isScrollable => {
       }
     `;
   }
+  return ``;
 };
 
 const dropdownArrow = (isHorizontal, isDropdown) => {
@@ -86,6 +92,7 @@ const dropdownArrow = (isHorizontal, isDropdown) => {
       }
     `;
   }
+  return ``;
 };
 
 const Heading = styled.span`
@@ -104,11 +111,62 @@ const List = styled.ul`
   padding: 0;
 `;
 
-const BaseItem = ({ className, children }, ...rest) => (
-  <li className={className} {...rest}>
-    {children}
-  </li>
-);
+class BaseItem extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      active: false
+    };
+  }
+
+  /**
+   * Toggles active state of dropdown
+   *
+   * @memberof BaseItem
+   * @private
+   */
+  handleDropdown = e => {
+    const { active } = this.state;
+    this.setState({ active: !active });
+  };
+
+  /**
+   * Renders all child elements
+   * and applies state as props to nested Dropdown menus
+   *
+   * @memberof BaseItem
+   * @private
+   */
+  renderDropdown = () => {
+    const { children } = this.props;
+    const { active } = this.state;
+
+    /**
+     * Find Dropdown components and add active state as prop
+     */
+    const propsToAdd = { active };
+    const elements = addPropsToComponent(children, Dropdown, propsToAdd);
+    if (!elements) {
+      return null;
+    }
+    return elements;
+  };
+
+  render() {
+    const { className, classes } = this.props;
+    return (
+      <li
+        className={`${className} ${classes}`}
+        onMouseEnter={this.handleDropdown}
+        onMouseLeave={this.handleDropdown}
+        onFocus={this.handleDropdown}
+        onBlur={this.handleDropdown}
+      >
+        {this.renderDropdown()}
+      </li>
+    );
+  }
+}
 
 const Item = styled(BaseItem)`
   position: relative;
@@ -172,14 +230,17 @@ const Item = styled(BaseItem)`
     }`
       : ``}
 
-      /* Displays dropdown on hover */
-      &:hover > .dropdown {
-          display: block;
-          position: absolute;
-      }
+    /* CSS fallback to display nested dropdowns on hover */
+    :active > .dropdown,
+    :focus > .dropdown,
+    :hover > .dropdown {
+        display: block;
+        position: absolute;
+    }
 
     /* Horizontal Menus - show the dropdown arrow */
     ${props => dropdownArrow(props.horizontal, props.dropdown)}
+    ${props => scrollableMenu(props.scrollable)}
     
 `;
 Item.propTypes = {
@@ -187,6 +248,10 @@ Item.propTypes = {
    * Makes links appear active
    */
   active: PropTypes.boolean,
+  /**
+   * Extra class names to append to element
+   */
+  classes: PropTypes.string,
   /**
    * Makes links appear disabled
    */
@@ -207,7 +272,7 @@ class BaseMenu extends PureComponent {
     // First we try to find the Heading sub-component among the children of Article
     const title = findByType(children, Heading);
     // If we don’t find any we return null
-    if (!title || title.length == 0) {
+    if (!title || title.length === 0) {
       return null;
     }
     // Else we return the children of the Heading sub-component as wanted
@@ -231,8 +296,9 @@ class BaseMenu extends PureComponent {
   }
 
   render() {
+    const { className } = this.props;
     return (
-      <nav className={this.props.className} {...this.props}>
+      <nav className={className} {...this.props}>
         {this.renderHeading()}
         {this.renderList()}
       </nav>
