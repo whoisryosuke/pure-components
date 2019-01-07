@@ -1,3 +1,13 @@
+# v1.1.0 - Jan 6, 2019
+
+- Dropdown upgraded. Now uses React state and JS mouse event like `onFocus` to allow for mouse and keyboard access to nested Dropdowns in Menu components. Accomplished by adding `active` state to the `<Menu>` class and passing it down to any nested `<Dropdown>` components using the new `addPropsToComponent` function.
+- Factored out `<Menu.Item>` into separate file.
+- Upgraded all Babel dev dependencies.
+
+# v1.0.4 - Jan 6, 2019
+
+- Dropdown displays by default, removed hoverable props
+
 # v1.0.3 - Jan 4, 2019
 
 - Changed main script to `src/index.js`
