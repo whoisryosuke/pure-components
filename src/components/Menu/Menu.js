@@ -86,29 +86,26 @@ const List = styled.ul`
 `;
 
 class BaseMenu extends PureComponent {
-  renderHeading() {
+  renderMenu() {
     const { children } = this.props;
-    // First we try to find the Heading sub-component among the children of Article
-    const title = findByType(children, Heading);
-    // If we don’t find any we return null
-    if (!title || title.length === 0) {
-      return null;
-    }
-    // Else we return the children of the Heading sub-component as wanted
-    return <Heading className="heading">{title[0].props.children}</Heading>;
-  }
 
-  renderList() {
-    const { children } = this.props;
-    const list = findByType(children, List);
-    const items = list.map(listItems =>
-      listItems.props.children.map(item => (
-        <Item className="item" key={item.props.children}>
-          {item.props.children}
-        </Item>
-      ))
-    );
-    if (!list) {
+    const listType = [List.displayName] || [List.name];
+    const headingType = [Heading.displayName] || [Heading.name];
+    const items = React.Children.map(children, child => {
+      const childType =
+        child && child.type && (child.type.displayName || child.type.name);
+      if (childType.includes(listType)) {
+        return child.props.children.map(item => (
+          <Item className="item" key={item.props.children}>
+            {item.props.children}
+          </Item>
+        ));
+      }
+      if (childType.includes(headingType)) {
+        return <Heading className="heading">{child.props.children}</Heading>;
+      }
+    });
+    if (!items) {
       return null;
     }
     return <List className="list">{items}</List>;
@@ -118,8 +115,7 @@ class BaseMenu extends PureComponent {
     const { className } = this.props;
     return (
       <nav className={className} {...this.props}>
-        {this.renderHeading()}
-        {this.renderList()}
+        {this.renderMenu()}
       </nav>
     );
   }
