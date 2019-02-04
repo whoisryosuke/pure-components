@@ -43,9 +43,30 @@ This project primarily uses StorybookJS for development.
 1. `npm install`
 1. `npm run storybook` or `npm run dev`
 
+### Building for Production
+
+1. `npm run build`
+
+This runs 3 separate Babel build processes that generates code for:
+
+- **Browser** (CDN scripts) - `/dist/`
+- **Node** (CommonJS modules) - `/module/`
+- **ES6 Modules** (npm frontend code) - `/lib/`
+
+You won't find these folder in this git repo, but you can generate them yourself by running the command above, or download them from a CDN like [unpkg](https://unpkg.com/pure-styled-components@latest)
+
+### Release on NPM
+
+1. Update `CHANGELOG.md`
+1. Change version in `package.json` (per semver rules)
+1. Login to npm CLI
+1. Run `npm run publish`
+
 ## Todo
 
 ### High Priority
+
+- Install semver to handle versioning
 
 ### Low Priority
 
