@@ -1,3 +1,9 @@
+# v1.1.1 - Feb 4, 2019
+
+- Added better Babel configs for cross-environment modules (browser, Node, ES6)
+- Updated README with instructions on build + npm release
+- Tried out Rollup (see branch `feat/rollup`). Possibility for builds, but Babel works fine for now.
+
 # v1.1.0 - Jan 6, 2019
 
 - Dropdown upgraded. Now uses React state and JS mouse event like `onFocus` to allow for mouse and keyboard access to nested Dropdowns in Menu components. Accomplished by adding `active` state to the `<Menu>` class and passing it down to any nested `<Dropdown>` components using the new `addPropsToComponent` function.

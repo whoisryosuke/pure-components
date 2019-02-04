@@ -60,7 +60,7 @@ You won't find these folder in this git repo, but you can generate them yourself
 1. Update `CHANGELOG.md`
 1. Change version in `package.json` (per semver rules)
 1. Login to npm CLI
-1. Run `npm run publish`
+1. Run `npm run release`
 
 ## Todo
 
