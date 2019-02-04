@@ -1,4 +1,4 @@
-# ![Pure](https://raw.githubusercontent.com/whoisryosuke/pure-components/master/images/logo-pure-js.jpg)
+# ![Pure](https://github.com/whoisryosuke/pure-components/blob/master/images/logo-pure-js.jpg?raw=true)
 
 ## A set of small, responsive CSS modules that you can use in every web project.
 
