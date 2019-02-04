@@ -1,3 +1,5 @@
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+
 module.exports = {
   module: {
     rules: [
@@ -9,5 +11,8 @@ module.exports = {
         }
       }
     ]
+  },
+  optimization: {
+    minimizer: [new UglifyJsPlugin()]
   }
 };
